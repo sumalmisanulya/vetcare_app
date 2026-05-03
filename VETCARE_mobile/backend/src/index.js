@@ -28,7 +28,15 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.get("/api/health", (_req, res) => res.json({ ok: true, service: "vetcare-mobile-api", version: "2.0.0" }));
+app.get("/api/health", (_req, res) => {
+  const dbStatus = require("mongoose").connection.readyState === 1 ? "connected" : "disconnected";
+  res.json({ 
+    ok: true, 
+    service: "vetcare-mobile-api", 
+    version: "2.0.0",
+    database: dbStatus 
+  });
+});
 
 app.use("/api/auth", authRoutes);
 

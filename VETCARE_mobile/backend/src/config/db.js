@@ -6,11 +6,10 @@ const connectDB = async () => {
     throw new Error("MONGODB_URI is missing in environment variables.");
   }
 
-  const maskedUri = uri.replace(/\/\/.*@/, "//****:****@");
-  console.log(`Connecting to MongoDB: ${maskedUri}`);
-
   await mongoose.connect(uri, { family: 4 });
-  console.log("MongoDB connected successfully");
+  const dbName = mongoose.connection.name;
+  const host = mongoose.connection.host;
+  console.log(`[DB] Connected to MongoDB host: ${host}, database: ${dbName}`);
 };
 
 module.exports = connectDB;
