@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="./vetcare_logo_1777896661650.png" alt="VetCare Logo" width="200"/>
-</p>
-
 <h1 align="center">VetCare Mobile</h1>
 
 <p align="center">
