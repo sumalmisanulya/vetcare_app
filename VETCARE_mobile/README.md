@@ -1,181 +1,166 @@
-# VetCare Mobile - Full Stack Mobile Application
+<p align="center">
+  <img src="./vetcare_logo_1777896661650.png" alt="VetCare Logo" width="200"/>
+</p>
 
-> **Separate project** from the existing `VETCARE` Laravel web app. This folder (`VETCARE_mobile`) is completely independent.
+<h1 align="center">VetCare Mobile</h1>
 
----
+<p align="center">
+  <strong>A Premium Full-Stack Veterinary Clinic Management Solution</strong>
+</p>
 
-## Project Structure
-
-```
-VETCARE_mobile/
-├── backend/          Node.js + Express.js + MongoDB REST API
-└── mobile/           React Native (Expo) mobile app
-```
-
----
-
-## Modules Implemented (from VETCARE Laravel analysis)
-
-| Module | Backend API | Mobile Screens |
-|---|---|---|
-| Auth (Login/Register) | ✅ JWT | ✅ LoginScreen |
-| Dashboard | ✅ Stats + Recent | ✅ DashboardScreen |
-| Users | ✅ Admin CRUD | ✅ UsersScreen + UserFormScreen |
-| Patients | ✅ Full CRUD + Search | ✅ PatientsScreen + PatientFormScreen + PatientDetailScreen |
-| Medical Records | ✅ Per Patient | ✅ PatientDetailScreen (tab) |
-| Patient Conditions | ✅ Per Patient | ✅ PatientDetailScreen (tab) |
-| Appointments | ✅ Full CRUD + Complete | ✅ AppointmentsScreen + AppointmentFormScreen |
-| Treatments | ✅ Full CRUD | ✅ TreatmentsScreen + TreatmentFormScreen |
-| Treatment Schedules | ✅ Full CRUD + Complete | ✅ SchedulesScreen + ScheduleFormScreen |
-| Lab Requests | ✅ Full CRUD + Status Update | ✅ LabScreen + LabFormScreen |
-| Products / Inventory | ✅ Full CRUD + Stock Adjust | ✅ ProductsScreen + ProductFormScreen |
-| Categories | ✅ CRUD | ✅ ProductFormScreen (selector) |
-| Suppliers | ✅ CRUD | ✅ ProductFormScreen (selector) |
-| Purchases | ✅ + Payments + Returns | ✅ PurchasesScreen + PurchaseFormScreen + PurchaseDetailScreen |
-| Invoices & Billing | ✅ + Payments | ✅ InvoicesScreen + InvoiceFormScreen + InvoiceDetailScreen |
-| Expenses | ✅ Full CRUD | ✅ ExpensesScreen + ExpenseFormScreen |
-| Expense Categories | ✅ CRUD | ✅ ExpensesScreen (tab) |
-| Reports | ✅ 7 Report Types | ✅ ReportsScreen |
+<p align="center">
+  <img src="https://img.shields.io/badge/React_Native-Expo-blue?style=for-the-badge&logo=react" alt="React Native"/>
+  <img src="https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/MongoDB-Mongoose-brightgreen?style=for-the-badge&logo=mongodb" alt="MongoDB"/>
+  <img src="https://img.shields.io/badge/Auth-JWT-orange?style=for-the-badge" alt="JWT"/>
+  <img src="https://img.shields.io/badge/Status-Live-red?style=for-the-badge" alt="Status"/>
+</p>
 
 ---
 
-## 1 — Backend Setup
+## 🌟 Overview
 
-```powershell
-cd "C:\dev\UNI ITP\VETCARE_fin\VETCARE_mobile\backend"
-npm install
-copy .env.example .env
-```
+**VetCare Mobile** is a sophisticated, full-stack mobile application designed to streamline veterinary clinic operations. Built with a modern tech stack (React Native, Node.js, and MongoDB), it provides a seamless experience for managing patients, appointments, billing, inventory, and reporting—all from the palm of your hand.
 
-Edit `.env`:
-```
-PORT=5000
-MONGODB_URI=mongodb://127.0.0.1:27017/vetcare_mobile
-JWT_SECRET=change_this_to_something_secure
-```
-
-Start dev server:
-```powershell
-npm run dev
-```
-
-Seed initial data (run ONCE after server starts):
-```powershell
-npm run seed:admin
-```
-
-This creates:
-- admin@vetcare.com / 123456 (admin)
-- doctor@vetcare.com / 123456 (doctor)
-- staff@vetcare.com / 123456 (staff)
-- Default categories, expense categories, treatments, suppliers
+This project is an independent mobile companion to the VetCare ecosystem, offering high-performance API integrations and a premium UI/UX.
 
 ---
 
-## 2 — Mobile Setup
+## 🚀 Core Modules & Features
 
-```powershell
-cd "C:\dev\UNI ITP\VETCARE_fin\VETCARE_mobile\mobile"
-npm install
-npm run start
-```
+### 🔐 Secure Access
+- **JWT Authentication**: Role-based access control for Admins, Doctors, and Staff.
+- **Secure Storage**: Encrypted user credentials and session management.
 
-Then press `a` for Android emulator or `i` for iOS simulator.
+### 🐾 Patient & Medical Management
+- **Electronic Health Records (EHR)**: Full lifecycle management of pet patients.
+- **Medical Records & Conditions**: Track history, allergies, and ongoing treatments.
+- **Treatment Scheduling**: Automated tracking of follow-up visits and medications.
 
-### API URL (edit `src/api/client.js`)
+### 📅 Appointment System
+- **Real-time Scheduling**: Manage clinic flow with ease.
+- **Status Tracking**: Monitor appointments from 'Pending' to 'Completed'.
 
-| Environment | URL |
+### 🧪 Lab & Diagnostics
+- **Lab Request Management**: Create and track lab requests.
+- **Result Integration**: Update statuses as reports are received.
+
+### 📦 Inventory & Pharmacy
+- **Stock Management**: Real-time tracking of products and medical supplies.
+- **Supplier Management**: Maintain relationships and track purchases.
+- **Stock Alerts**: Stay ahead of inventory needs.
+
+### 💳 Financials & Billing
+- **Dynamic Invoicing**: Generate professional invoices with itemized billing.
+- **Payment Tracking**: Record partial and full payments.
+- **Expense Management**: Track clinic overheads and operating costs.
+
+### 📊 Advanced Reporting
+- **Business Intelligence**: 7+ report types including Financial, Stock, Profit/Loss, and Trending treatments.
+
+---
+
+## 🛠️ Technology Stack
+
+| Component | Technology |
 |---|---|
-| Android Emulator | `http://10.0.2.2:5000/api` (default) |
-| iOS Simulator | `http://localhost:5000/api` |
-| Real Device (Wi-Fi) | `http://YOUR_PC_IP:5000/api` |
+| **Mobile Frontend** | React Native (Expo SDK 51), React Navigation v6 |
+| **Styling** | Native Wind / Custom Premium Theme |
+| **API Client** | Axios with interceptors for Auth |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB Atlas with Mongoose ORM |
+| **Security** | JWT, BcryptJS, CORS |
+| **Infrastructure** | Render (API), MongoDB Atlas (DB), Expo EAS (Build) |
 
 ---
 
-## 3 — API Endpoints Summary
+## 📂 Project Structure
 
-```
-GET    /api/health
-POST   /api/auth/register
-POST   /api/auth/login
-
-GET/POST       /api/patients
-GET/PUT/DELETE /api/patients/:id
-GET/POST       /api/patients/:id/records
-GET/POST       /api/patients/:id/conditions
-
-GET/POST       /api/appointments
-POST           /api/appointments/:id/complete
-
-GET/POST       /api/treatments
-GET/POST       /api/schedules
-POST           /api/schedules/:id/complete
-
-GET/POST       /api/lab
-POST           /api/lab/:id/status
-
-GET/POST       /api/products
-POST           /api/products/:id/stock
-
-GET/POST       /api/categories
-GET/POST       /api/suppliers
-GET/POST       /api/purchases
-POST           /api/purchases/:id/payments
-POST           /api/purchases/:id/returns
-
-GET/POST       /api/invoices
-POST           /api/invoices/:id/payments
-
-GET/POST       /api/expenses
-GET/POST       /api/expenses/categories
-
-GET            /api/dashboard
-GET            /api/reports/financial
-GET            /api/reports/stock
-GET            /api/reports/treatments
-GET            /api/reports/doctors
-GET            /api/reports/profit-loss
-GET            /api/reports/purchases
-GET            /api/reports/trending
-
-GET/POST/PUT/DELETE /api/users  (admin only)
+```text
+VETCARE_mobile/
+├── backend/          # Node.js + Express.js REST API
+│   ├── src/models/   # Mongoose Schemas
+│   ├── src/routes/   # API Endpoints
+│   └── ...
+└── mobile/           # React Native (Expo) Mobile App
+    ├── src/screens/  # UI Modules
+    ├── src/api/      # Backend Integration
+    └── ...
 ```
 
 ---
 
-## 4 — Deployment
+## ⚙️ Installation & Setup
 
-### Backend (Render / Railway)
-1. Push `backend/` to GitHub
-2. Set environment variables: `MONGODB_URI` (use MongoDB Atlas), `JWT_SECRET`, `PORT`
-3. Build command: `npm install`
-4. Start command: `npm start`
+### 1. Backend Configuration
+1. Navigate to the backend directory:
+   ```powershell
+   cd backend
+   ```
+2. Install dependencies:
+   ```powershell
+   npm install
+   ```
+3. Setup environment variables (`.env`):
+   ```env
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secure_secret
+   ```
+4. Start the server:
+   ```powershell
+   npm run dev
+   ```
+5. Seed initial data (Admin/Doctor/Staff):
+   ```powershell
+   npm run seed:admin
+   ```
 
-### MongoDB Atlas (Cloud DB)
-```
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/vetcare_mobile
-```
+### 2. Mobile Configuration
+1. Navigate to the mobile directory:
+   ```powershell
+   cd mobile
+   ```
+2. Install dependencies:
+   ```powershell
+   npm install
+   ```
+3. Configure API base URL in `src/api/client.js`:
+   ```javascript
+   const API_BASE_URL = 'http://YOUR_LOCAL_IP:5000/api';
+   ```
+4. Launch the app:
+   ```powershell
+   npm start
+   ```
 
-### Mobile App (EAS Build)
+---
+
+## 🌐 Live Deployment
+
+### Backend (Render/Railway)
+- The API is designed for stateless deployment.
+- Ensure `MONGODB_URI` points to a MongoDB Atlas cluster.
+- Set `NODE_ENV=production`.
+
+### Mobile (Expo EAS)
+Build for Android/iOS using Expo Application Services:
 ```powershell
-npm install -g eas-cli
 eas build --platform android
 ```
-Update `src/api/client.js` `API_BASE_URL` to your deployed backend URL before building.
 
 ---
 
-## Tech Stack
+## 📝 API Summary (Key Endpoints)
 
-| Layer | Technology |
-|---|---|
-| Frontend | React Native (Expo SDK 51) |
-| Navigation | React Navigation v6 |
-| HTTP Client | Axios |
-| Backend | Node.js + Express.js |
-| Database | MongoDB + Mongoose |
-| Auth | JWT (jsonwebtoken + bcryptjs) |
+- `POST /api/auth/login` - Secure authentication.
+- `GET /api/patients` - List pet records with search.
+- `GET /api/appointments` - Calendar and list views.
+- `GET /api/dashboard` - Clinic statistics overview.
+- `GET /api/reports/*` - Advanced data analytics.
 
 ---
 
-*Developed based on VetCare Laravel web app analysis. All modules replicated.*
+<p align="center">
+  <em>Developed with ❤️ for the Veterinary Community.</em>
+</p>
